@@ -1,0 +1,5 @@
+DURATION: _departure_date, return_date, days_number, firstname, lastname, phone
+
+BELONG TO, 11 DURATION, 11 REVIEW
+
+REVIEW: _created_date, firstname, lastname, picture, comment, rating

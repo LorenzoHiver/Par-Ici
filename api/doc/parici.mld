@@ -1,0 +1,3 @@
+duration(id, departure_date, return_date, days_number, firstname, lastname, phone)
+review(id, created_date, firstname, lastname, picture, comment, rating)
+INCLUDE(#duration(id), #review(id))

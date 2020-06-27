@@ -1,0 +1,57 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="122" height="390" view_box="0 0 122 390"
+xmlns="http://www.w3.org/2000/svg"
+xmlns:link="http://www.w3.org/1999/xlink">\n\n<desc>Généré par Mocodo 2.3.7 le Sat, 27 Jun 2020 04:30:37</desc>
+
+<rect id="frame" x="0" y="0" width="122" height="390" fill="#ffffff" stroke="none" stroke-width="0"/>
+
+<!-- Association BELONG TO -->
+<line x1="61" y1="77" x2="61" y2="195" stroke="#d6604d" stroke-width="2"/>
+<text x="66.0" y="162" fill="#4d4d4d" font-family="Verdana" font-size="12">1,1</text>
+<line x1="61" y1="313" x2="61" y2="195" stroke="#d6604d" stroke-width="2"/>
+<text x="66.0" y="237" fill="#4d4d4d" font-family="Verdana" font-size="12">1,1</text>
+<g id="association-BELONG TO">
+	<path d="M 90 170 a 14 14 90 0 1 14 14 V 195 h -86 V 184 a 14 14 90 0 1 14 -14" fill="#f4a582" stroke="#f4a582" stroke-width="0"/>
+	<path d="M 104 195.0 v 11 a 14 14 90 0 1 -14 14 H 32 a 14 14 90 0 1 -14 -14 V 195.0 H 86" fill="#fddbc7" stroke="#fddbc7" stroke-width="0"/>
+	<rect x="18" y="170" width="86" height="50" fill="none" rx="14" stroke="#d6604d" stroke-width="2"/>
+	<line x1="18" y1="195" x2="104" y2="195" stroke="#d6604d" stroke-width="1"/>
+	<text x="25" y="187.7" fill="#000000" font-family="Verdana" font-size="12">BELONG TO</text>
+</g>
+
+<!-- Entity DURATION -->
+<g id="entity-DURATION">
+	<g id="frame-DURATION">
+		<rect x="9" y="9" width="104" height="25" fill="#bababa" stroke="#bababa" stroke-width="0"/>
+		<rect x="9" y="34.0" width="104" height="111" fill="#e0e0e0" stroke="#e0e0e0" stroke-width="0"/>
+		<rect x="9" y="9" width="104" height="136" fill="none" stroke="#878787" stroke-width="2"/>
+		<line x1="9" y1="34" x2="113" y2="34" stroke="#878787" stroke-width="1"/>
+	</g>
+	<text x="28" y="26.7" fill="#000000" font-family="Verdana" font-size="12">DURATION</text>
+	<text x="14" y="51.7" fill="#000000" font-family="Verdana" font-size="12">departure_date</text>
+	<text x="14" y="68.7" fill="#000000" font-family="Verdana" font-size="12">return_date</text>
+	<text x="14" y="85.8" fill="#000000" font-family="Verdana" font-size="12">days_number</text>
+	<text x="14" y="102.8" fill="#000000" font-family="Verdana" font-size="12">firstname</text>
+	<text x="14" y="119.8" fill="#000000" font-family="Verdana" font-size="12">lastname</text>
+	<text x="14" y="136.8" fill="#000000" font-family="Verdana" font-size="12">phone</text>
+</g>
+
+<!-- Entity REVIEW -->
+<g id="entity-REVIEW">
+	<g id="frame-REVIEW">
+		<rect x="16" y="245" width="90" height="25" fill="#bababa" stroke="#bababa" stroke-width="0"/>
+		<rect x="16" y="270.0" width="90" height="111" fill="#e0e0e0" stroke="#e0e0e0" stroke-width="0"/>
+		<rect x="16" y="245" width="90" height="136" fill="none" stroke="#878787" stroke-width="2"/>
+		<line x1="16" y1="270" x2="106" y2="270" stroke="#878787" stroke-width="1"/>
+	</g>
+	<text x="36" y="262.7" fill="#000000" font-family="Verdana" font-size="12">REVIEW</text>
+	<text x="21" y="287.7" fill="#000000" font-family="Verdana" font-size="12">created_date</text>
+	<text x="21" y="304.7" fill="#000000" font-family="Verdana" font-size="12">firstname</text>
+	<text x="21" y="321.8" fill="#000000" font-family="Verdana" font-size="12">lastname</text>
+	<text x="21" y="338.8" fill="#000000" font-family="Verdana" font-size="12">picture</text>
+	<text x="21" y="355.8" fill="#000000" font-family="Verdana" font-size="12">comment</text>
+	<text x="21" y="372.8" fill="#000000" font-family="Verdana" font-size="12">rating</text>
+</g>
+</svg>
