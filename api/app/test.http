@@ -1,0 +1,11 @@
+### service indisponible
+GET http://localhost:8080/404
+
+### récupération de toutes les périodes
+GET http://localhost:8080/durations
+
+### récupération d'une période
+GET http://localhost:8080/duration/1
+
+### récupération de l'avis d'une période
+GET http://localhost:8080/duration/1/review
