@@ -6,6 +6,7 @@ class Duration extends Model {};
 Duration.init({
   departureDate: DataTypes.DATE,
   returnDate: DataTypes.DATE,
+  daysIncluded: DataTypes.ARRAY(DataTypes.DATE),
   daysNumber: DataTypes.INTEGER,
   firstname: DataTypes.TEXT,
   lastname: DataTypes.TEXT,

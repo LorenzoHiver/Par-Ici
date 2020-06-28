@@ -5,6 +5,7 @@ const sequelize = new Sequelize(process.env.PG_URL, {
         underscored: true,
         departureDate: 'departure_date',
         returnDate: 'return_date',
+        daysIncluded: 'days_included',
         daysNumber: 'days_number',
         createdAt: 'created_at',
         updatedAt: 'updated_at'
