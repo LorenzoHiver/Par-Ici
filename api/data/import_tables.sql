@@ -11,6 +11,7 @@ CREATE TABLE "duration" (
   "id" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "departure_date" DATE NOT NULL DEFAULT CURRENT_DATE,
   "return_date" DATE NOT NULL,
+  "days_included" DATE ARRAY,
   "days_number" INTEGER NOT NULL,
   "firstname" TEXT NOT NULL DEFAULT '',
   "lastname" TEXT NOT NULL DEFAULT '',

@@ -12,11 +12,17 @@ router.get('/', function(req, res) {
 });
 
 /* Duration */
-router.get('/durations', durationController.getAllDuration);
-router.get('/duration/:id', durationController.getOneDuration);
+router.route('/durations')
+  .get(durationController.getAllDuration)
+  .post(durationController.createDuration);
+
+router.route('/durations/:id')
+  .get(durationController.getOneDuration)
+  .patch(durationController.modifyDuration)
+  .delete(durationController.deleteDuration);
 
 /* Review */
-router.get('/duration/:id/review', reviewController.getReviewInDuration);
+router.get('/durations/:id/review', reviewController.getReviewInDuration);
 
 /* 404 */
 router.use((req, res) => {
