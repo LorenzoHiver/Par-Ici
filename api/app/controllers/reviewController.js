@@ -53,9 +53,9 @@ const reviewController = {
         res.status(404).json(`Aucune période de l'id ${durationId} n'a été trouvée`);
       }
 
-      // On attribue par défaut les mêmes informations que l'on retrouve dans duration pour les 3 variables ci-dessous
-
+      // on stocke l'id de la période dans une variable propre à l'avis
       const duration_id = durationId;
+
       // Le code de la période, nécessaire pour pouvoir poster l'avis sur celle-ci
       const code = duration.code;
 
@@ -109,6 +109,7 @@ const reviewController = {
       console.trace(error);
       res.status(500).json(error);
     }
+    
   },
 
   deleteReview: async (req, res) => {
