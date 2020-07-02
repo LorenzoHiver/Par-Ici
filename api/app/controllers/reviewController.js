@@ -8,7 +8,7 @@ const reviewController = {
       const durationId = req.params.id;
       const duration = await Duration.findByPk(durationId, {
         // On inclue l'avis à celle-ci
-        include: ['review']
+        include: 'review'
       });
 
       if (!duration) {

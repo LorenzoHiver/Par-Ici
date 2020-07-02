@@ -7,7 +7,7 @@ const durationController = {
 	getAllDuration: async (req, res) => {
 		try {
 			const durations = await Duration.findAll({
-				include: ['review']
+				include: 'review'
 			});
 			res.json(durations);
 		} catch (error) {
@@ -35,7 +35,7 @@ const durationController = {
 	createDuration: async (req, res) => {
 		try {
 
-			// On récupère la valeur de l'input et on le récupère sous la forme d'une date via momentjs. Pour une raison obscure, l'input récupéré est déduis de 1 journée, par conséquent on rajoute une journée à cette valeur pour palier au problème.
+			// On récupère la valeur de l'input et on le récupère sous la forme d'une date via momentjs. Pour une raison obscure, l'input récupéré est déduit de 1 journée, par conséquent on rajoute une journée à cette valeur pour palier au problème.
 			const departureDate = moment(req.body.departureDate).add(1, 'days');
 			const returnDate = moment(req.body.returnDate).add(1, 'days');
 
