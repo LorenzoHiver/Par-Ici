@@ -1,6 +1,5 @@
 const moment = require('moment');
-moment.locale('fr');
-const Duration = require('../models/duration');
+const { Duration } = require('../models');
 const strRandom = require('../helper');
 
 const durationController = {
@@ -24,7 +23,7 @@ const durationController = {
 			if (duration) {
 				res.json(duration);
 			} else {
-				res.status(404).send('Pas de période avec l\'id ' + durationId);
+				res.status(404).send(`Aucune période de l'id ${durationId} n'a été trouvée`);
 			}
 
 		} catch (error) {
@@ -70,17 +69,17 @@ const durationController = {
 			});
 
 			// Test de présence des paramètres
-			const bodyErrors = [];
+			let bodyErrors = [];
 
 			// Pas besoin d'erreur sur la date de départ qui est par défaut à la date de la réservation
 			if (!returnDate) {
 				bodyErrors.push('Vous devez sélectionner une date de retour');
 			};
 			if (!firstname) {
-				bodyErrors.push('Vous devez indiquer votre prénom');
+				bodyErrors.push('Vous devez indiquer un prénom');
 			};
 			if (!lastname) {
-				bodyErrors.push('Vous devez indiquer votre nom');
+				bodyErrors.push('Vous devez indiquer un nom');
 			};
 			if (!phone) {
 				bodyErrors.push('Vous devez indiquer un numéro de téléphone afin que nous puissions vous joindre si nécessaire');
@@ -90,8 +89,8 @@ const durationController = {
 				res.status(400).json(bodyErrors);
 			} else {
 				let newDuration = Duration.build({
-					departureDate, // : departureDate.format('YYYY-MM-DD'),
-					returnDate, // : returnDate.format('YYYY-MM-DD'),
+					departureDate,
+					returnDate,
 					daysIncluded,
 					daysNumber,
 					firstname,
@@ -115,7 +114,7 @@ const durationController = {
 			const duration = await Duration.findByPk(durationId);
 			
 			if (!duration) {
-				res.status(404).send('Pas de période avec l\'id ' + durationId);
+				res.status(404).send(`Aucune période de l'id ${durationId} n'a été trouvée`);
 			} else {
 
 				const newDepartureDate = moment(req.body.newDepartureDate).add(1, "days");
