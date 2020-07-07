@@ -12,6 +12,7 @@ CREATE TABLE "duration" (
   "departure_date" DATE NOT NULL DEFAULT CURRENT_DATE,
   "return_date" DATE NOT NULL,
   "days_included" DATE ARRAY,
+  UNIQUE ("departure_date", "return_date", "days_included"),
   "days_number" INTEGER NOT NULL,
   "firstname" TEXT NOT NULL DEFAULT '',
   "lastname" TEXT NOT NULL DEFAULT '',
@@ -20,7 +21,7 @@ CREATE TABLE "duration" (
   "review_id" INTEGER,
   -- Pour avoir la date et l'heure on utilise le type "timestamp", et pour être le plus précis possible on utilisera plutôt le type "timestampz" qui contient en plus de la date et de l'heure le fuseau horaire défini dans les locales du serveur
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-  "updated_at" TIMESTAMPTZ
+  "updated_at" TIMESTAMPTZ 
 );
 
 /* 2ème table : Card */

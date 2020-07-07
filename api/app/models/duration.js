@@ -14,7 +14,8 @@ Duration.init({
   code: DataTypes.CHAR
 }, {
   sequelize,
-  tableName: "duration"
+  tableName: "duration",
+
 });
 
 module.exports = Duration;

@@ -6,23 +6,27 @@ GET http://localhost:8080/durations
 
 ### Création d'une nouvelle période
 POST http://localhost:8080/durations
-Content-Type: application/x-www-form-urlencoded
+Content-Type: application/json
 
-departureDate=2020-08-05
-&returnDate=2020-08-10
-&firstname=Dylan
-&lastname=Lagache
-&phone=06000000
+{
+    "departureDate": "2020-08-05",
+    "returnDate": "2020-08-10",
+    "firstname": "Dylan",
+    "lastname": "Lagache",
+    "phone": "06000000"
+}
 
 ### Récupération d'une période
 GET http://localhost:8080/duration/5
 
 ### Modification d'une période
-PATCH http://localhost:8080/duration/12
-Content-Type: application/x-www-form-urlencoded
+PATCH http://localhost:8080/duration/4
+Content-Type: application/json
 
-newDepartureDate=2020-08-02
-&newReturnDate=2020-08-07
+{
+    "newDepartureDate": "2020-08-02",
+    "newReturnDate": "2020-08-07"
+}
 
 ### Suppression d'une période
 DELETE http://localhost:8080/duration/4
@@ -32,11 +36,13 @@ GET http://localhost:8080/duration/4/review
 
 ### Création d'un avis (obligatoirement lié à une période)
 POST http://localhost:8080/duration/7/review
-Content-Type: application/x-www-form-urlencoded
+Content-Type: application/json
 
-comment=blablabla
-&picture=fff
-&rating= 4
+{
+    "comment": "blablabla",
+    "picture": "fff",
+    "rating": 4
+}
 
 ### Récupération d'un avis
 GET http://localhost:8080/review/5

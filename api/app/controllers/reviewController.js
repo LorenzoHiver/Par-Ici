@@ -74,6 +74,7 @@ const reviewController = {
         lastname = duration.lastname;
       };
 
+      // Test de présence des paramètres
       let bodyErrors = [];
       if (!firstname) {
         bodyErrors.push("Vous devez indiquer un prénom");
@@ -109,7 +110,7 @@ const reviewController = {
       console.trace(error);
       res.status(500).json(error);
     }
-    
+
   },
 
   deleteReview: async (req, res) => {
