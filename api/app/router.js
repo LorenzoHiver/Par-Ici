@@ -15,14 +15,18 @@ router.get('/', function(req, res) {
 router.route('/durations')
   .get(durationController.getAllDuration)
   .post(durationController.createDuration);
-
-router.route('/durations/:id')
+router.route('/duration/:id')
   .get(durationController.getOneDuration)
   .patch(durationController.modifyDuration)
   .delete(durationController.deleteDuration);
 
 /* Review */
-router.get('/durations/:id/review', reviewController.getReviewInDuration);
+router.route('/duration/:id/review')
+  .get(reviewController.getReviewInDuration)
+  .post(reviewController.createReviewToDuration);
+router.route('/review/:id')
+  .get(reviewController.getOneReview)
+  .delete(reviewController.deleteReview);
 
 /* 404 */
 router.use((req, res) => {
