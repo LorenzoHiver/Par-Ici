@@ -1,6 +1,11 @@
 import React, { useState, useEffect, memo } from 'react';
 import styled from '@emotion/styled';
 import './StepContainer.component.css';
+import { DateRangePicker } from 'react-dates';
+import moment from 'moment';
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
+import 'moment/locale/fr';
 
 import { FlexColumn } from '../Commons/Flex.commons';
 
@@ -62,43 +67,63 @@ const InputDate = styled.input`
 `;
 
 const StepContainer = () => {
+
     const [progress, setProgress] = useState(3);
     const [step, setStep] = useState(1);
+    const [date, setDate] = useState({});
+    const [focusedInput, setFocusedInput] = useState(null);
 
-    const date = new Date();
+    const BAD_DATES = [moment(), moment().add(5, 'days')];
+    const isDayBlocked = day => BAD_DATES.filter(d => d.isSame(day, 'day')).length > 0;
 
     useEffect(() => {
         switch (progress) {
             case 3:
                 setStep(1);
                 break;
-            case 35.75:    
+            case 35.75:
                 setStep(2);
                 break;
-            case 68.5:    
+            case 68.5:
                 setStep(3);
                 break;
-            case 101.25:    
+            case 101.25:
                 setStep(4);
-                break;    
+                break;
             default:
                 break;
         }
     }, [progress])
 
-    console.log(progress);
+    const handleWeekDays = (day) => {
+        day._locale._weekdaysMin = ['DI', 'LU', 'MA', 'ME', 'JE', 'VE', 'SA'];
+        return (day.format('D'));
+    }
 
     return (
         <Container>
             <FlexColumn>
                 <H2>ETAPE {step}</H2>
-                <InputDate defaultValue={`${date.getFullYear()}-${("0" + (date.getMonth() + 1)).slice(-2)}-${date.getDate()}`} onChange={(e) => console.log(e.target.value)} type="date" />
-                <InputDate defaultValue={`${date.getFullYear()}-${("0" + (date.getMonth() + 1)).slice(-2)}-${date.getDate()}`} onChange={(e) => console.log(e.target.value)} type="date" />
+                <DateRangePicker
+                    startDatePlaceholderText="Départ"
+                    endDatePlaceholderText="Arrivé"
+                    startDateId="startDate"
+                    endDateId="endDate"
+                    displayFormat={"DD-MM-YYYY"}
+                    startDate={date.startDate}
+                    endDate={date.endDate}
+                    onDatesChange={({ startDate, endDate }) => setDate({ startDate, endDate })}
+                    focusedInput={focusedInput}
+                    onFocusChange={(focusedInput) => { setFocusedInput(focusedInput) }}
+                    renderMonthElement={({ month }) => moment(month).locale('fr').format('MMMM YYYY')}
+                    renderDayContents={(day) => handleWeekDays(day)}
+                    isDayBlocked={isDayBlocked}
+                />
             </FlexColumn>
             <ProgressBar>
-                    <Button disabled={progress === 3 && true} onClick={() => setProgress((value) => value - 32.75)} left={'-25%'}>Précédent</Button>
+                <Button disabled={progress === 3 && true} onClick={() => setProgress((value) => value - 32.75)} left={'-25%'}>Précédent</Button>
                 <ColorProgress progress={progress} width={progress} />
-                    <Button onClick={() => setProgress((value) => value + 32.75)} left={'106%'}>{progress === 101.25 ? "Terminer" : "Suivant"}</Button>
+                <Button onClick={() => setProgress((value) => value + 32.75)} left={'106%'}>{progress === 101.25 ? "Terminer" : "Suivant"}</Button>
             </ProgressBar>
         </Container>
     )
